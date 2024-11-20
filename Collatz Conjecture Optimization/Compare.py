@@ -5,12 +5,14 @@ from Collatz4 import Collatz4
 from Collatz5 import Collatz5
 from Collatz6 import Collatz6
 from Collatz7 import Collatz7
+from Collatz8 import Collatz8
+from Collatz9 import Collatz9
 
 import numpy as np
 from matplotlib import pyplot as plt 
 
-num = 1000000
-names = ['Original', 'Local var', 'Else:', 'Just IF', 'Bitwise', 'Remove MOD', 'Type Hinting']
+num = 10_000_000
+names = ['Original', 'Local var', 'Else:', 'Just IF', 'Bitwise', 'Remove MOD', 'Type Hinting','While nesting','a']
 times = list()
 
 c1 = Collatz1(num)
@@ -33,6 +35,12 @@ times.append(c6.solve())
 
 c7 = Collatz7(num)
 times.append(c7.solve())
+
+c8 = Collatz8(num)
+times.append(c8.solve())
+
+c9 = Collatz9(num)
+times.append(c9.solve())
 
  
 fig = plt.figure(figsize = (10, 5))

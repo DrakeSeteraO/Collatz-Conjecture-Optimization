@@ -1,6 +1,6 @@
 from time import perf_counter_ns
 
-class Collatz7:
+class Collatz9:
     
     def __init__(self, num: int):
         self.num: int = num
@@ -8,11 +8,12 @@ class Collatz7:
     def solve(self): 
         start: int = perf_counter_ns()
         
-        num: int = self.num
-        while num != 1:
-            if num & 0b1 == 1:
-                num: int = (num << 1) + num + 1
-            num: int = num >> 1
-                
+        a: int = self.num
+        if a & 0b1 == 1:
+            a: int = (a << 1) + a + 1
+        while a != 1:
+            a: int = (a << 1) + a + 1
+            while a & 0b1 == 0:
+                a: int = a >> 1
         end: int = perf_counter_ns()
         return end - start
